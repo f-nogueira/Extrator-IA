@@ -1,4 +1,3 @@
-# ia_service.py
 import os
 import json
 import io
@@ -27,7 +26,10 @@ def processar_documento_com_ia(conteudo_arquivo, tipo_arquivo):
         "data_emissao": "data encontrada ou null",
         "referencia": "referencia encontrada ou null"
     }
-    Não inclua formatações Markdown, apenas o texto do JSON puro.
+    Regras obrigatórias:
+    1. Se não encontrar alguma informação, coloque null no campo correspondente.
+    2. Para o campo "data_emissao" você DEVE converter e padronizar a saída SEMPRE no formato DD/MM/AAAA (exemplo: 01/04/2026). Se não conseguir identificar uma data, deixe como null.
+    3. Não inclua formatações Markdown, apenas o texto do JSON puro.
     """
     
     # 1. Lógica para Planilhas (Excel ou CSV)
